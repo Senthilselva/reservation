@@ -14,10 +14,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
+var reservation =[];
+
+var waitlist = [];
+
+
 //home html
 app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname, 'home.html'));
 });
+
+app.get('/table', function (req, res) {
+	res.sendFile(path.join(__dirname, 'table.html'));
+});
+
+app.get('/reserver' function(req,res){
+	res.sendFile(path.join(__dirname, 'reserver.html'))
+
+})
+
 
 
 app.listen(PORT, function () {
