@@ -16,54 +16,43 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 var reservations =[
 {
-	name: " afFf",
+	name: " 1111",
 	phone: "weqweteq",
 	email:"werew",
 	uniqueID:"343241"
 },
 {
-	name: " afFf",
+	name: " 2222",
 	phone: "weqweteq",
 	email:"werew",
 	uniqueID:"343241"
 },
 {
-	name: " afFf",
+	name: " 33333",
 	phone: "weqweteq",
 	email:"werew",
 	uniqueID:"343241"
 },
 {
-	customerName: " afFf",
-	phone_no: "weqweteq",
-	customerEmail:"werew",
-	customerId:"343241"
+	name: " 4444",
+	phone: "weqweteq",
+	email:"werew",
+	uniqueID:"343241"
 }];
 
-var waitlist = [
-//{
-// 	customerName: " afFf",
-// 	phone_no: "weqweteq",
-// 	customerEmail:"werew",
-// 	customerId:"343241"
-// },
-// {
-// 	customerName: " afFf",
-// 	phone_no: "weqweteq",
-// 	customerEmail:"werew",
-// 	customerId:"343241"
-// },
-// {
-// 	customerName: " afFf",
-// 	phone_no: "weqweteq",
-// 	customerEmail:"werew",
-// 	customerId:"343241"
-// },{
-// 	customerName: " afFf",
-// 	phone_no: "weqweteq",
-// 	customerEmail:"werew",
-// 	customerId:"343241"
-//}
+var waitlists = [
+{
+	name: " 77777",
+	phone: "weqweteq",
+	email:"werew",
+	uniqueID:"343241"
+
+},{
+	name: "88888888",
+	phone: "weqweteq",
+	email:"werew",
+	uniqueID:"343241"
+}
 ];
 
 
@@ -73,15 +62,17 @@ app.get('/', function (req, res) {
 });
 
 app.get('/api/waitlists', function (req, res) {
-	res.json(waitlist);
+	console.log("waitlist")
+	res.json(waitlists);
 });
 
 app.get('/api/reservations', function (req, res) {
-	res.json(waitlist);
+	res.json(reservations);
 });
 
 app.get('/table', function(req,res){
 	res.sendFile(path.join(__dirname, 'table.html'))
+});
 
 app.get('/reserve', function(req,res){
 	res.sendFile(path.join(__dirname, 'reserve.html'))
@@ -98,11 +89,11 @@ app.post('/api/new', function (req, res) {
 	if(reservations.length < 5){
 	// We then add the json the user sent to the character array
 	reservations.push(newCustomer);
-		res.json(reservations);
+		//res.json(reservations);
 
 	} else {
 		waitlist.push(newCustomer);
-		res.json(waitlist);
+		//res.json(waitlist);
 	}
 	// We then display the JSON to the users
 	

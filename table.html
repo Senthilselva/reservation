@@ -33,7 +33,7 @@
         <div class="panel-heading">
           <h4 class="panel-title">Waiting List</h4>
         </div>
-        <div class="panel-body" id="waitlistSection">
+        <div class="panel-body" id="waitListSection">
         </div>
       </div>
         
@@ -63,23 +63,23 @@
         $("#resWell-" + i).append("<h3>Unique ID: " + reservation[i].uniqueID + "</h4>");  
       };
     
-
-    // for (var i =0; i < waitList.length; i++){
-    //   var waitlistSection = $("<div>");
-    //     waitlistSection.addClass('well');
-    //     waitlistSection.attr('id', 'waitWell-' + i)
-    //     $('#waitListSection').append(waitlistSection);        
-
-    //     $("#waitWell-" + i).append("<h2>" + waitList[i].name + "</h2>");
-    //     $("#waitWell-" + i).append("<h3>Phone: " + waitList[i].phone + "</h4>");
-    //     $("#waitWell-" + i).append("<h3>Email: " + waitList[i].email + "</h4>");
-    //     $("#waitWell-" + i).append("<h3>Unique ID: " + waitList[i].uniqueID + "</h4>");  
-    //   }
-
-
     });
 
+$.get(currentURL+"/api/waitlists", function(waitList){
+  
+  for (var i =0; i < waitList.length; i++){
+    console.log("waitlist" + JSON.stringify(waitList[i].name));
+        var waitlistSection = $("<div>");
+          waitlistSection.addClass('well');
+          waitlistSection.attr('id', 'waitWell-' + i)
+          $('#waitListSection').append(waitlistSection);        
 
+          $("#waitWell-" + i).append("<h2>" + waitList[i].name + "</h2>");
+          $("#waitWell-" + i).append("<h3>Phone: " + waitList[i].phone + "</h4>");
+          $("#waitWell-" + i).append("<h3>Email: " + waitList[i].email + "</h4>");
+          $("#waitWell-" + i).append("<h3>Unique ID: " + waitList[i].uniqueID + "</h4>");  
+        }
+  });
 
 
   </script>
