@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<title>Reserve</title>
+</HEAD>
+<BODY>
+ 
+  <div class="jumbotron">
+  <h1>Pinc Tako!</h1>
+  <p>Yo me gusta la grande taters</p>
+  <p>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Table</a>
+  <a class="btn btn-primary btn-lg" href="#" role="button">Home</a>
+  </p>
+</div>
+
+<div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"><strong>Make Reservation</strong></h3>
+          </div>
+          <div class="panel-body">
+            <form action="" method="POST" role="form">
+
+              <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="">
+              </div>
+
+              <div class="form-group">
+                <label for="">Number</label>
+                <input type="text" class="form-control" id="number" placeholder="">
+              </div>
+
+              <div class="form-group">
+                <label for="">E-mail</label>
+                <input type="text" class="form-control" id="email" placeholder="">
+              </div>
+
+              <div class="form-group">
+                <label for="">Unique ID</label>
+                <input type="text" class="form-control" id="uniqueID" placeholder="">
+              </div>
+
+            </form>
+            <br>
+            <div class="text-right">
+              <button type="submit" class="btn btn-primary btn-md" id="addBtn"></span><span class="glyphicon glyphicon-fire"></span> RESERVE</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    // Question: What does this code do?
+    $('#addBtn').on('click', function () {
+      var newCharacter = {
+        name: $('#name').val().trim(),
+        role: $('#role').val().trim(),
+        age: $('#age').val().trim(),
+        forcePoints: $('#forcepoints').val().trim()
+      };
+      // Question: What does this code do??
+      $.post('http://localhost:3000/api/new', newCharacter)
+        .done(function (data) {
+          console.log(data);
+          alert('Adding character...');
+        });
+      return false;
+    });
+  </script>
+
+
+</BODY>
