@@ -72,18 +72,16 @@ app.get('/', function (req, res) {
 	res.sendFile(path.join(__dirname, 'home.html'));
 });
 
-app.get('/api/reservations', function (req, res) {
-	res.json(reservations);
+app.get('/api/waitlists', function (req, res) {
+	res.json(waitlist);
 });
 
-app.get('/api/waitlists', function (req, res) {
+app.get('/api/reservations', function (req, res) {
 	res.json(waitlist);
 });
 
 app.get('/table', function(req,res){
 	res.sendFile(path.join(__dirname, 'table.html'))
-
-});
 
 app.get('/reserve', function(req,res){
 	res.sendFile(path.join(__dirname, 'reserve.html'))
