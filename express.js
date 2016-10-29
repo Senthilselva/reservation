@@ -16,23 +16,24 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 
 var reservations =[
 {
-	customerName: " afFf",
-	phone_no: "weqweteq",
-	customerEmail:"werew",
-	customerId:"343241"
+	name: " afFf",
+	phone: "weqweteq",
+	email:"werew",
+	uniqueID:"343241"
 },
 {
-	customerName: " afFf",
-	phone_no: "weqweteq",
-	customerEmail:"werew",
-	customerId:"343241"
+	name: " afFf",
+	phone: "weqweteq",
+	email:"werew",
+	uniqueID:"343241"
 },
 {
-	customerName: " afFf",
-	phone_no: "weqweteq",
-	customerEmail:"werew",
-	customerId:"343241"
-},{
+	name: " afFf",
+	phone: "weqweteq",
+	email:"werew",
+	uniqueID:"343241"
+},
+{
 	customerName: " afFf",
 	phone_no: "weqweteq",
 	customerEmail:"werew",
@@ -80,7 +81,7 @@ app.get('/api/waitlists', function (req, res) {
 });
 
 app.get('/table', function(req,res){
-	res.sendFile(path.join(__dirname, 'reserve.html'))
+	res.sendFile(path.join(__dirname, 'table.html'))
 
 });
 

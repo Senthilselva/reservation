@@ -5,16 +5,18 @@
 <title>Reserve</title>
 </HEAD>
 <BODY>
- 
+ <div class = "container">
   <div class="jumbotron">
   <h1>Pinc Tako!</h1>
   <p>Yo me gusta la grande taters</p>
   <p>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Table</a>
-  <a class="btn btn-primary btn-lg" href="#" role="button">Home</a>
+  <a class="btn btn-danger btn-lg" href="/table" role="button">Table</a>
+  <a class="btn btn-primary btn-lg" href="/" role="button">Home</a>
   </p>
 </div>
+</div>
 
+<div class ="container">
 <div class="panel panel-default">
           <div class="panel-heading">
             <h3 class="panel-title"><strong>Make Reservation</strong></h3>
@@ -28,8 +30,8 @@
               </div>
 
               <div class="form-group">
-                <label for="">Number</label>
-                <input type="text" class="form-control" id="number" placeholder="">
+                <label for="">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="">
               </div>
 
               <div class="form-group">
@@ -45,29 +47,29 @@
             </form>
             <br>
             <div class="text-right">
-              <button type="submit" class="btn btn-primary btn-md" id="addBtn"></span><span class="glyphicon glyphicon-fire"></span> RESERVE</button>
+              <button type="submit" class="btn btn-warning btn-md" id="addBtn"></span><span class="glyphicon glyphicon-fire"></span> RESERVE</button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </div>
+</div>
 
   <script type="text/javascript">
     // Question: What does this code do?
     $('#addBtn').on('click', function () {
-      var newCharacter = {
+      var newReservation = {
         name: $('#name').val().trim(),
-        role: $('#role').val().trim(),
-        age: $('#age').val().trim(),
-        forcePoints: $('#forcepoints').val().trim()
+        phone: $('#phone').val().trim(),
+        email: $('#email').val().trim(),
+        uniqueID: $('#uniqueID').val().trim()
       };
       // Question: What does this code do??
-      $.post('http://localhost:3000/api/new', newCharacter)
+      $.post('http://localhost:3000/api/new', newReservation)
         .done(function (data) {
           console.log(data);
-          alert('Adding character...');
+          alert('Adding reservation...');
         });
       return false;
     });
