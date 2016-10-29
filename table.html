@@ -6,37 +6,81 @@
 </HEAD>
 <BODY>
  
-    <div class="jumbotron">
-  <h1>Pinc Tako!</h1>
-  <p>Yo me gusta la grande taters</p>
-  <p>
-  <a class="btn btn-primary btn-lg" href="home.html" role="button">Home</a>
-  <a class="btn btn-primary btn-lg" href="reserve.html" role="button">Make Reservation</a></p>
-</div>
+<div id="main" class="container">
 
-<div class="row">
-      <div class="col-lg-12">
+  <div class="jumbotron">
+    <h1>Pinc Tako!</h1>
+      <p>Yo me gusta la grande taters</p>
+      <p>
+        <a class="btn btn-primary btn-lg" href="home.html" role="button">Home</a>
+        <a class="btn btn-primary btn-lg" href="reserve.html" role="button">Make Reservation</a>
+      </p>
+  </div>
 
-        <!-- Current Tables in Use -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">Current Reservations</h4>
-          </div>
-          <div class="panel-body" id="tableSection">
-          </div>
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Current Reservations</h4>
         </div>
-
-        <!-- Waiting List Panel -->
-        <div class="panel panel-default">
-          <div class="panel-heading">
-            <h4 class="panel-title">Waiting List</h4>
-          </div>
-          <div class="panel-body" id="waitlistSection">
-          </div>
+        
+        <div class="panel-body" id="tableSection">
         </div>
       </div>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Waiting List</h4>
+        </div>
+        <div class="panel-body" id="waitlistSection">
+        </div>
+      </div>
+        
     </div>
+  </div>
+
+</div>
 
 
+<script type="text/javascript">
+    
+  var currentURL = window.location.origin;
+
+  console.log(currentURL + "/api");
+
+  $.get(currentURL + "/api", function(data){
+
+    for (var i =0; i < reservation.length; i++){
+      var tableSection = $("<div>");
+        tableSection.addClass('well');
+        tableSection.attr('id', 'resWell-' + i)
+        $('#tableSection').append(tableSection);        
+
+        $("#resWell-" + i).append("<h2>" + reservation[i].name + "</h2>");
+        $("#resWell-" + i).append("<h3>Phone: " + reservation[i].phone + "</h4>");
+        $("#resWell-" + i).append("<h3>Email: " + reservation[i].email + "</h4>");
+        $("#resWell-" + i).append("<h3>Unique ID: " + reservation[i].uniqueID + "</h4>");  
+      };
+    
+    for (var i =0; i < waitList.length; i++){
+      var waitlistSection = $("<div>");
+        waitlistSection.addClass('well');
+        waitlistSection.attr('id', 'waitWell-' + i)
+        $('#waitListSection').append(waitlistSection);        
+
+        $("#waitWell-" + i).append("<h2>" + waitList[i].name + "</h2>");
+        $("#waitWell-" + i).append("<h3>Phone: " + waitList[i].phone + "</h4>");
+        $("#waitWell-" + i).append("<h3>Email: " + waitList[i].email + "</h4>");
+        $("#waitWell-" + i).append("<h3>Unique ID: " + waitList[i].uniqueID + "</h4>");  
+      }
+
+
+
+    });
+
+
+
+
+  </script>
 </BODY>
 
